@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B994324C2AC4E0000048C37D /* TextSubmitController.m in Sources */ = {isa = PBXBuildFile; fileRef = B994324B2AC4E0000048C37D /* TextSubmitController.m */; };
+		B99432552AC4E9880048C37D /* TextModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B99432542AC4E9880048C37D /* TextModel.m */; };
 		B9ECD5302ABE88D200BBB36B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B9ECD52F2ABE88D200BBB36B /* AppDelegate.m */; };
 		B9ECD5332ABE88D200BBB36B /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B9ECD5322ABE88D200BBB36B /* ViewController.m */; };
 		B9ECD5352ABE88DF00BBB36B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B9ECD5342ABE88DF00BBB36B /* Assets.xcassets */; };
@@ -34,6 +36,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B994323B2AC4DD2C0048C37D /* TextSubmitController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TextSubmitController.h; sourceTree = "<group>"; };
+		B994324B2AC4E0000048C37D /* TextSubmitController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TextSubmitController.m; sourceTree = "<group>"; };
+		B99432502AC4E4F10048C37D /* TextModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TextModel.h; sourceTree = "<group>"; };
+		B99432542AC4E9880048C37D /* TextModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TextModel.m; sourceTree = "<group>"; };
 		B9ECD52B2ABE88D200BBB36B /* SystemInfoApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SystemInfoApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B9ECD52E2ABE88D200BBB36B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		B9ECD52F2ABE88D200BBB36B /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -106,9 +112,13 @@
 				B9ECD5322ABE88D200BBB36B /* ViewController.m */,
 				B9ECD5342ABE88DF00BBB36B /* Assets.xcassets */,
 				B9ECD5362ABE88DF00BBB36B /* Main.storyboard */,
+				B99432502AC4E4F10048C37D /* TextModel.h */,
+				B99432542AC4E9880048C37D /* TextModel.m */,
 				B9ECD5392ABE88DF00BBB36B /* Info.plist */,
 				B9ECD53A2ABE88DF00BBB36B /* main.m */,
 				B9ECD53C2ABE88DF00BBB36B /* SystemInfoApp.entitlements */,
+				B994323B2AC4DD2C0048C37D /* TextSubmitController.h */,
+				B994324B2AC4E0000048C37D /* TextSubmitController.m */,
 			);
 			path = SystemInfoApp;
 			sourceTree = "<group>";
@@ -261,6 +271,8 @@
 			files = (
 				B9ECD5332ABE88D200BBB36B /* ViewController.m in Sources */,
 				B9ECD53B2ABE88DF00BBB36B /* main.m in Sources */,
+				B99432552AC4E9880048C37D /* TextModel.m in Sources */,
+				B994324C2AC4E0000048C37D /* TextSubmitController.m in Sources */,
 				B9ECD5302ABE88D200BBB36B /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
