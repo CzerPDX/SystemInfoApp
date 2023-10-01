@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		B988F2162AC641B700F8298A /* DashboardModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B988F2152AC641B700F8298A /* DashboardModel.m */; };
 		B99432612AC520190048C37D /* MainDashboardController.m in Sources */ = {isa = PBXBuildFile; fileRef = B99432602AC520190048C37D /* MainDashboardController.m */; };
+		B9A2FB182ACA2C2B00E95F98 /* CPUViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B9A2FB172ACA2C2B00E95F98 /* CPUViewController.m */; };
+		B9A2FB202ACA2CED00E95F98 /* MemoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B9A2FB1F2ACA2CED00E95F98 /* MemoryViewController.m */; };
+		B9A2FB252ACA2D0A00E95F98 /* StorageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B9A2FB242ACA2D0A00E95F98 /* StorageViewController.m */; };
+		B9A2FB2A2ACA2D2F00E95F98 /* NetworkViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B9A2FB292ACA2D2F00E95F98 /* NetworkViewController.m */; };
 		B9ECD5302ABE88D200BBB36B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B9ECD52F2ABE88D200BBB36B /* AppDelegate.m */; };
 		B9ECD5332ABE88D200BBB36B /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B9ECD5322ABE88D200BBB36B /* ViewController.m */; };
 		B9ECD5352ABE88DF00BBB36B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B9ECD5342ABE88DF00BBB36B /* Assets.xcassets */; };
@@ -40,6 +44,14 @@
 		B988F2152AC641B700F8298A /* DashboardModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DashboardModel.m; sourceTree = "<group>"; };
 		B994325F2AC51FDD0048C37D /* MainDashboardController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainDashboardController.h; sourceTree = "<group>"; };
 		B99432602AC520190048C37D /* MainDashboardController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainDashboardController.m; sourceTree = "<group>"; };
+		B9A2FB132ACA2B7C00E95F98 /* CPUViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CPUViewController.h; sourceTree = "<group>"; };
+		B9A2FB142ACA2BB100E95F98 /* MemoryViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MemoryViewController.h; sourceTree = "<group>"; };
+		B9A2FB152ACA2BEE00E95F98 /* StorageViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StorageViewController.h; sourceTree = "<group>"; };
+		B9A2FB162ACA2C0600E95F98 /* NetworkViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NetworkViewController.h; sourceTree = "<group>"; };
+		B9A2FB172ACA2C2B00E95F98 /* CPUViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CPUViewController.m; sourceTree = "<group>"; };
+		B9A2FB1F2ACA2CED00E95F98 /* MemoryViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MemoryViewController.m; sourceTree = "<group>"; };
+		B9A2FB242ACA2D0A00E95F98 /* StorageViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StorageViewController.m; sourceTree = "<group>"; };
+		B9A2FB292ACA2D2F00E95F98 /* NetworkViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NetworkViewController.m; sourceTree = "<group>"; };
 		B9ECD52B2ABE88D200BBB36B /* SystemInfoApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SystemInfoApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B9ECD52E2ABE88D200BBB36B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		B9ECD52F2ABE88D200BBB36B /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -116,9 +128,17 @@
 				B9ECD53A2ABE88DF00BBB36B /* main.m */,
 				B9ECD53C2ABE88DF00BBB36B /* SystemInfoApp.entitlements */,
 				B994325F2AC51FDD0048C37D /* MainDashboardController.h */,
+				B99432602AC520190048C37D /* MainDashboardController.m */,
 				B988F2142AC640AE00F8298A /* DashboardModel.h */,
 				B988F2152AC641B700F8298A /* DashboardModel.m */,
-				B99432602AC520190048C37D /* MainDashboardController.m */,
+				B9A2FB132ACA2B7C00E95F98 /* CPUViewController.h */,
+				B9A2FB172ACA2C2B00E95F98 /* CPUViewController.m */,
+				B9A2FB142ACA2BB100E95F98 /* MemoryViewController.h */,
+				B9A2FB1F2ACA2CED00E95F98 /* MemoryViewController.m */,
+				B9A2FB152ACA2BEE00E95F98 /* StorageViewController.h */,
+				B9A2FB242ACA2D0A00E95F98 /* StorageViewController.m */,
+				B9A2FB162ACA2C0600E95F98 /* NetworkViewController.h */,
+				B9A2FB292ACA2D2F00E95F98 /* NetworkViewController.m */,
 			);
 			path = SystemInfoApp;
 			sourceTree = "<group>";
@@ -272,8 +292,12 @@
 				B9ECD5332ABE88D200BBB36B /* ViewController.m in Sources */,
 				B988F2162AC641B700F8298A /* DashboardModel.m in Sources */,
 				B99432612AC520190048C37D /* MainDashboardController.m in Sources */,
+				B9A2FB182ACA2C2B00E95F98 /* CPUViewController.m in Sources */,
+				B9A2FB2A2ACA2D2F00E95F98 /* NetworkViewController.m in Sources */,
 				B9ECD53B2ABE88DF00BBB36B /* main.m in Sources */,
 				B9ECD5302ABE88D200BBB36B /* AppDelegate.m in Sources */,
+				B9A2FB252ACA2D0A00E95F98 /* StorageViewController.m in Sources */,
+				B9A2FB202ACA2CED00E95F98 /* MemoryViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
