@@ -13,6 +13,6 @@
 - (NSInteger)numberOfCategories;
 
 // Return the text for the nth category (zero-indexed)
-- (NSString *)categoryTitlesAtIdx:(NSInteger)Idx;
+- (NSString *)categoryTitleAtIdx:(NSInteger)Idx;
 
 @end

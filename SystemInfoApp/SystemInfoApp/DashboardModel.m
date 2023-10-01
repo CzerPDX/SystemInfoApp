@@ -10,6 +10,7 @@
 @interface DashboardModel ()
 
 @property (strong, nonatomic) NSArray *categoryTitles;
+
 @end
 
 
@@ -17,7 +18,7 @@
 
 - (instancetype)init {
     self = [super init];
-    // Initialize cateories for live monitoring
+    // Initialize the titles of dashboard categories. They will be listed in this order
     if (self) {
         self.categoryTitles = @[@"CPU", @"Memory", @"Storage", @"Network"];
     }
@@ -30,7 +31,7 @@
 }
 
 // Return the category title at index
-- (NSString *)categoryTitlesAtIdx:(NSInteger)idx {
+- (NSString *)categoryTitleAtIdx:(NSInteger)idx {
     return [self.categoryTitles objectAtIndex:idx];
 }
 
