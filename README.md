@@ -1,17 +1,22 @@
 # SystemInfoApp
 An `Objective-C` app being developed in `Xcode` to help me learn how to interact with `macOS` system-level APIs. It will display real-time information about the system including CPU, disk, memory, and network usage.
 
+## Software Details
+### Main Dashboard
+A vertical `Split View` is used to divide the left half of the main dashboard from the right. The left side contains a cell-based `Table View` that is connected to the `Main Dashboard Controller`. The Main Dashboard Controller adheres to the `NSTableViewDelegate` and `NSTableViewDataSource` protocols. `numberOfRowsInTableView` provides the number of rows in the table and `tableView:objectValueForTableColumn:row:` provides the string used in each table cell.
 
-## Software Requirements
+
+## Initial Software Requirements
+This project was based on the following requirements
 
 ### Functional Requirements
 
 #### Main Dashboard
 The `Main Dashboard` needs to display a list of statistics `categories`
-- CPU Usage
-- Memory Usage
-- Disk Usage
-- Network Information.
+- CPU
+- Memory
+- Storage
+- Network
 
 #### Monitoring
 When any of the above `categories` in the `Main Dashboard` is selected a new window should appear to display the real-time data for that `category`.
