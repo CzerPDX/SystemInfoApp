@@ -13,4 +13,6 @@
 // dashboardTableView handles the list of statistics categories in left pane
 @property (weak) IBOutlet NSTableView *dashboardTableView;
 
+@property (weak) IBOutlet NSView *rightPaneView;
+
 @end

@@ -9,12 +9,25 @@
 
 #import "MainDashboardController.h"
 #import "DashboardModel.h"
+#import "CPUViewController.h"
+#import "MemoryViewController.h"
+#import "StorageViewController.h"
+#import "NetworkViewController.h"
+
+typedef enum {
+    kCircle,
+    kRectangle,
+    kOblateSpheroid
+} RightPaneViewControllers;
 
 
 @interface MainDashboardController ()
 
 // Declare an instance of the model
 @property (strong, nonatomic) DashboardModel *dashboardModel;
+
+// Declare a reference to the view controller that will be in the right pane
+@property (nonatomic, strong) NSViewController *currentRightPaneViewController;
 
 @end
 
@@ -36,6 +49,18 @@
     self.dashboardModel = [[DashboardModel alloc] init];
     [self.dashboardTableView setDelegate:self];
     [self.dashboardTableView setDataSource:self];
+    
+    // Initialize CPUViewController from storyboard
+    NSViewController *defaultViewController = [self.storyboard instantiateControllerWithIdentifier:@"CPUViewController"];
+    
+    // Add it as a child to this controller
+    [self addChildViewController:defaultViewController];
+    
+    // Add view to rightPaneView
+    [self.rightPaneView addSubview:defaultViewController.view];
+    
+    // Update the currentRightPaneViewController property to the
+    self.currentRightPaneViewController = defaultViewController;
 }
 
 // Delegate method overrides for the dashboardTableView
@@ -47,14 +72,49 @@
     return [self.dashboardModel categoryTitleAtIdx:row];
 }
 
-// Respond to a row being selected
+// Respond to a row being selected to update view in right pane
 // https://developer.apple.com/documentation/appkit/nstableviewdelegate/1528567-tableviewselectiondidchange?language=objc
+
+- (void)switchPaneContentsByViewControllerID:(NSString *)viewControllerID {
+    // Clear previous view controller and its view
+    if (self.currentRightPaneViewController) {
+        [self.currentRightPaneViewController.view removeFromSuperview];
+        [self.currentRightPaneViewController removeFromParentViewController];
+    }
+    
+    // Initialize CPUViewController from storyboard
+    NSViewController *viewController = [self.storyboard instantiateControllerWithIdentifier:viewControllerID];
+    
+    // Add it as a child to this controller
+    [self addChildViewController:viewController];
+    
+    // Add view to rightPaneView
+    [self.rightPaneView addSubview:viewController.view positioned:NSWindowAbove relativeTo:self.rightPaneView];
+    
+    // Update the currentRightPaneViewController property
+    self.currentRightPaneViewController = viewController;
+}
 
 - (void)tableViewSelectionDidChange:(NSNotification *)notification {
     // Determine which row is selected:
     NSInteger idx = self.dashboardTableView.selectedRow;
-    NSString *rowTitle = [self.dashboardModel categoryTitleAtIdx:idx];
-    NSLog(@"%@", rowTitle);
+    
+    switch (idx) {
+        case 0:
+            [self switchPaneContentsByViewControllerID:@"CPUViewController"];
+            break;
+        case 1:
+            [self switchPaneContentsByViewControllerID:@"MemoryViewController"];
+            break;
+        case 2:
+            [self switchPaneContentsByViewControllerID:@"StorageViewController"];
+            break;
+        case 3:
+            [self switchPaneContentsByViewControllerID:@"NetworkViewController"];
+            break;
+        default:
+            NSLog(@"default!!");
+    }
 }
 
 @end
