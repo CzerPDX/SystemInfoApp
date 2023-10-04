@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B95602FA2ACCCB5000D243E9 /* CPUModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B95602F92ACCCB5000D243E9 /* CPUModel.m */; };
 		B988F2162AC641B700F8298A /* DashboardModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B988F2152AC641B700F8298A /* DashboardModel.m */; };
 		B99432612AC520190048C37D /* MainDashboardController.m in Sources */ = {isa = PBXBuildFile; fileRef = B99432602AC520190048C37D /* MainDashboardController.m */; };
 		B9A2FB182ACA2C2B00E95F98 /* CPUViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B9A2FB172ACA2C2B00E95F98 /* CPUViewController.m */; };
@@ -40,6 +41,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B95602F82ACCCA1100D243E9 /* CPUModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CPUModel.h; sourceTree = "<group>"; };
+		B95602F92ACCCB5000D243E9 /* CPUModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CPUModel.m; sourceTree = "<group>"; };
 		B988F2142AC640AE00F8298A /* DashboardModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DashboardModel.h; sourceTree = "<group>"; };
 		B988F2152AC641B700F8298A /* DashboardModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DashboardModel.m; sourceTree = "<group>"; };
 		B994325F2AC51FDD0048C37D /* MainDashboardController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainDashboardController.h; sourceTree = "<group>"; };
@@ -133,6 +136,8 @@
 				B988F2152AC641B700F8298A /* DashboardModel.m */,
 				B9A2FB132ACA2B7C00E95F98 /* CPUViewController.h */,
 				B9A2FB172ACA2C2B00E95F98 /* CPUViewController.m */,
+				B95602F82ACCCA1100D243E9 /* CPUModel.h */,
+				B95602F92ACCCB5000D243E9 /* CPUModel.m */,
 				B9A2FB142ACA2BB100E95F98 /* MemoryViewController.h */,
 				B9A2FB1F2ACA2CED00E95F98 /* MemoryViewController.m */,
 				B9A2FB152ACA2BEE00E95F98 /* StorageViewController.h */,
@@ -291,6 +296,7 @@
 			files = (
 				B9ECD5332ABE88D200BBB36B /* ViewController.m in Sources */,
 				B988F2162AC641B700F8298A /* DashboardModel.m in Sources */,
+				B95602FA2ACCCB5000D243E9 /* CPUModel.m in Sources */,
 				B99432612AC520190048C37D /* MainDashboardController.m in Sources */,
 				B9A2FB182ACA2C2B00E95F98 /* CPUViewController.m in Sources */,
 				B9A2FB2A2ACA2D2F00E95F98 /* NetworkViewController.m in Sources */,

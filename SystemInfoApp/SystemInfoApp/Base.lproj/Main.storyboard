@@ -706,9 +706,8 @@
         <scene sceneID="XG7-wx-Gg6">
             <objects>
                 <viewController storyboardIdentifier="MemoryViewController" id="bEP-FJ-nQp" customClass="MemoryViewController" sceneMemberID="viewController">
-                    <view key="view" id="ReN-h8-Ghc">
+                    <view key="view" translatesAutoresizingMaskIntoConstraints="NO" id="ReN-h8-Ghc">
                         <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
-                        <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="gvX-xt-8nN">
                                 <rect key="frame" x="18" y="264" width="414" height="16"/>
@@ -815,9 +814,8 @@
         <scene sceneID="H0z-af-7Jk">
             <objects>
                 <viewController storyboardIdentifier="StorageViewController" id="yom-7Z-jso" customClass="StorageViewController" sceneMemberID="viewController">
-                    <view key="view" id="1VZ-ru-7MJ">
+                    <view key="view" translatesAutoresizingMaskIntoConstraints="NO" id="1VZ-ru-7MJ">
                         <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
-                        <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="WIp-Rp-bZl">
                                 <rect key="frame" x="18" y="264" width="414" height="16"/>
@@ -843,9 +841,8 @@
         <scene sceneID="u9I-1j-aFh">
             <objects>
                 <viewController storyboardIdentifier="NetworkViewController" id="ZEW-V8-Oxc" customClass="NetworkViewController" sceneMemberID="viewController">
-                    <view key="view" id="CkN-a2-EHj">
+                    <view key="view" translatesAutoresizingMaskIntoConstraints="NO" id="CkN-a2-EHj">
                         <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
-                        <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="N2n-ra-Fbt">
                                 <rect key="frame" x="18" y="264" width="414" height="16"/>
@@ -871,9 +868,8 @@
         <scene sceneID="9b0-71-SCY">
             <objects>
                 <viewController storyboardIdentifier="CPUViewController" id="2yM-2i-FcN" customClass="CPUViewController" sceneMemberID="viewController">
-                    <view key="view" id="Pyr-Ca-ioa">
+                    <view key="view" translatesAutoresizingMaskIntoConstraints="NO" id="Pyr-Ca-ioa">
                         <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
-                        <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="vN9-qL-TiL">
                                 <rect key="frame" x="18" y="264" width="414" height="16"/>
