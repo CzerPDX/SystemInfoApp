@@ -6,6 +6,7 @@
 //
 
 #import "MemoryViewController.h"
+#import "MemoryModel.h"
 
 
 @interface MemoryViewController ()
@@ -19,6 +20,8 @@
 // After the view has loaded this will run to set up and initialize the controller.
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    [MemoryModel overallMemoryPercent];
 }
 
 

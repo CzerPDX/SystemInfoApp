@@ -63,15 +63,18 @@ typedef enum {
     self.currentRightPaneViewController = defaultViewController;
 }
 
-// Delegate method overrides for the dashboardTableView
+// Delegate method implementations for the dashboardTableView
+// Return the number of rows in the table
 - (NSInteger)numberOfRowsInTableView:(NSTableView *)tableView {
     return [self.dashboardModel numberOfCategories];
 }
 
+// Return the data in the row
 - (id)tableView:(NSTableView *)tableView objectValueForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row {
     return [self.dashboardModel categoryTitleAtIdx:row];
 }
 
+// Stop the rows from being editable
 - (BOOL)tableView:(NSTableView *)tableView shouldEditTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row {
     return NO;
 }
@@ -104,6 +107,7 @@ typedef enum {
     // Determine which row is selected:
     NSInteger idx = self.dashboardTableView.selectedRow;
     
+    // Switch the rightPane to the correct content based on the selected row
     switch (idx) {
         case 0:
             [self switchPaneContentsByViewControllerID:@"CPUViewController"];
