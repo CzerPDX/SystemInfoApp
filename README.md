@@ -6,7 +6,15 @@ An `Objective-C` app being developed in `Xcode` to help me learn how to interact
 A vertical `Split View` is used to divide the left half of the main dashboard from the right. The left side contains a cell-based `Table View` that is connected to the `Main Dashboard Controller`. The Main Dashboard Controller adheres to the `NSTableViewDelegate` and `NSTableViewDataSource` protocols. `numberOfRowsInTableView` provides the number of rows in the table and `tableView:objectValueForTableColumn:row:` provides the string used in each table cell.
 
 ### CPU Monitor
-The `CPU Monitor` uses the `Mach` function `host_processor_info` to get CPU tick information for each processor on the system.
+The `CPUModel` provides a static function called `overallCPUPercent` as an interface to calculate the CPU usage across the system.
+
+#### Calculating the CPU usage across the system cores
+`overallCPUPercent` uses the `Mach` library's `host_processor_info` function to get CPU tick information for each processor core. For each core the used ticks are added to a global total using `CPU_STATE_USER` and `CPU_STATE_SYSTEM` and the idle ticks are collected from `CPU_STATE_IDLE`. Once the values of these are summed from all cores, the overall CPU usage on the system can be calculated by:
+
+Total CPU Usage Percent = ( `used ticks` / ( `used ticks` + `idle ticks` )) * 100
+
+#### Displaying the CPU usage in the view
+The `CPUViewController` uses `NSTimer` to call `overallCPUPercent` every few seconds. The exact amount will eventually be set by an app setting that can be changed by the user, but until that portion of the software is implemented it is just set to `1 second`.
 
 
 ## Initial Software Requirements

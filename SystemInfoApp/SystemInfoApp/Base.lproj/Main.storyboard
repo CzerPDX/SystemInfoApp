@@ -685,11 +685,11 @@
         <scene sceneID="R2V-B0-nI4">
             <objects>
                 <windowController id="B8D-0N-5wS" sceneMemberID="viewController">
-                    <window key="window" title="System Info App!" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="default" id="IQv-IB-iLA" userLabel="Main Dashboard Monitor">
+                    <window key="window" title="System Usage Information!?" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="default" id="IQv-IB-iLA" userLabel="Main Dashboard Monitor">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
                         <rect key="contentRect" x="196" y="240" width="480" height="270"/>
-                        <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
+                        <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1057"/>
                         <connections>
                             <outlet property="delegate" destination="B8D-0N-5wS" id="98r-iN-zZc"/>
                         </connections>
@@ -879,13 +879,27 @@
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
+                            <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="dwJ-Yt-gGj">
+                                <rect key="frame" x="20" y="216" width="207" height="40"/>
+                                <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" borderStyle="bezel" placeholderString="loading..." drawsBackground="YES" id="Icn-Xe-EWf">
+                                    <font key="font" metaFont="system" size="30"/>
+                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
                         </subviews>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="vN9-qL-TiL" secondAttribute="trailing" constant="20" symbolic="YES" id="h7q-DE-Gri"/>
-                            <constraint firstItem="vN9-qL-TiL" firstAttribute="top" secondItem="Pyr-Ca-ioa" secondAttribute="top" constant="20" id="pYF-Pe-r7Q"/>
-                            <constraint firstItem="vN9-qL-TiL" firstAttribute="leading" secondItem="Pyr-Ca-ioa" secondAttribute="leading" constant="20" symbolic="YES" id="uxq-FX-rgj"/>
+                            <constraint firstItem="dwJ-Yt-gGj" firstAttribute="top" secondItem="vN9-qL-TiL" secondAttribute="bottom" constant="8" symbolic="YES" id="E2D-yx-TdC"/>
+                            <constraint firstAttribute="trailing" secondItem="vN9-qL-TiL" secondAttribute="trailing" constant="20" symbolic="YES" id="JYH-DL-Rje"/>
+                            <constraint firstItem="vN9-qL-TiL" firstAttribute="top" secondItem="Pyr-Ca-ioa" secondAttribute="top" constant="20" symbolic="YES" id="mdO-3S-6U6"/>
+                            <constraint firstItem="dwJ-Yt-gGj" firstAttribute="leading" secondItem="vN9-qL-TiL" secondAttribute="leading" id="oK1-EH-W90"/>
+                            <constraint firstItem="vN9-qL-TiL" firstAttribute="leading" secondItem="Pyr-Ca-ioa" secondAttribute="leading" constant="20" symbolic="YES" id="rhS-D5-2XT"/>
+                            <constraint firstItem="dwJ-Yt-gGj" firstAttribute="trailing" secondItem="vN9-qL-TiL" secondAttribute="trailing" constant="-203" id="u2c-f5-xmB"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="cpuUsageTextField" destination="dwJ-Yt-gGj" id="AV8-zu-UzV"/>
+                    </connections>
                 </viewController>
                 <customObject id="epW-Yc-G94" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>

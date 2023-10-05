@@ -9,7 +9,7 @@
 
 @interface CPUModel : NSObject
 
-// Test to run getting cpu info
-+ (void)machTestProcessorInfo;
+// Get CPU info
++ (double)overallCPUPercent;
 
 @end

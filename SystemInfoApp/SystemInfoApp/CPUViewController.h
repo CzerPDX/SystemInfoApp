@@ -9,4 +9,7 @@
 
 @interface CPUViewController : NSViewController
 
+// Field to display the overall CPU usage of the system
+@property (weak) IBOutlet NSTextField *cpuUsageTextField;
+
 @end
