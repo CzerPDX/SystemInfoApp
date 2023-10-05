@@ -5,6 +5,9 @@ An `Objective-C` app being developed in `Xcode` to help me learn how to interact
 ### Main Dashboard
 A vertical `Split View` is used to divide the left half of the main dashboard from the right. The left side contains a cell-based `Table View` that is connected to the `Main Dashboard Controller`. The Main Dashboard Controller adheres to the `NSTableViewDelegate` and `NSTableViewDataSource` protocols. `numberOfRowsInTableView` provides the number of rows in the table and `tableView:objectValueForTableColumn:row:` provides the string used in each table cell.
 
+### CPU Monitor
+The `CPU Monitor` uses the `Mach` function `host_processor_info` to get CPU tick information for each processor on the system.
+
 
 ## Initial Software Requirements
 This project was based on the following requirements

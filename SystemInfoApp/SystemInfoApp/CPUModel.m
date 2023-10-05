@@ -64,8 +64,10 @@
     
     
     if (hostProcessorInfoResult == KERN_SUCCESS) {
+        int usedTicksAllCores = 0;  // Total used ticks across all cores
+        int idleTicksAllCores = 0;  // Total idle ticks across all cores
         for (int i = 0; i < processorCount; ++i) {
-//            NSLog(@"Processor info at index %d: %d", i, processorInfo[i]);
+            // NSLog(@"Processor info at index %d: %d", i, processorInfo[i]);
             // I got pretty stuck here looking at the raw output as a series of ints, as it didn't make sense to me what they represented. After looking around the internet for documentation (SCARCE!) and reading the mach headers that defined the different flavors (processor_info.h) I finally figured out that, based on the flavor I use, the data in out_processor_info will vary. Using PROCESSOR_CPU_LOAD_INFO would set it to be the CPU ticks per processor, but it was still hard to understand exactly what types of processes were being represented with what.
             // I found a page here https://ladydebug.com/blog/codes/cpuusage_mac.htm where this dev declares the out parameter as a processor_cpu_load_info_t struct instead of a processor_info_array_t. This was key for me as I realized they did this in order to make the processInfo struct readable. It still needs to be cast as processor_info_array_t in the function call, but the types are compatible so I could then dereference it using the processor_cpu_load_info_t struct afterward. A clearer explanation is below:
             /*
@@ -79,11 +81,40 @@
             NSLog(@"User ticks:     %d", processorInfo[i].cpu_ticks[CPU_STATE_USER]);       // ticks used by user space processes
             NSLog(@"System ticks:   %d", processorInfo[i].cpu_ticks[CPU_STATE_SYSTEM]);     // ticks used by the kernel
             NSLog(@"Idle ticks:     %d", processorInfo[i].cpu_ticks[CPU_STATE_IDLE]);       // ticks not being used
-            NSLog(@"Nice ticks:     %d", processorInfo[i].cpu_ticks[CPU_STATE_NICE]);       // Not relevant in macos, just including it because it's in the sturcture
+            NSLog(@"Nice ticks:     %d", processorInfo[i].cpu_ticks[CPU_STATE_NICE]);       // Not relevant in macos, just including it because it's in the struct
             
+            // Calculate the usage for each core individually
+            // Calculate the used ticks by adding together the user and system process ticks
+            int usedTicks = processorInfo[i].cpu_ticks[CPU_STATE_USER] + processorInfo[i].cpu_ticks[CPU_STATE_SYSTEM];
+            
+            // Calculate the total ticks available by adding the used ticks together with the idle ticks
+            int totalTicks = usedTicks + processorInfo[i].cpu_ticks[CPU_STATE_IDLE];
+            
+            // Calculate the percentage of CPU usage for this core by dividing the used ticks by the total ticks available
+            double usedPercent = ((double)usedTicks / totalTicks) * 100;
+            
+            NSLog(@"Processor %d Usage Percent: %.02f%%", i, usedPercent);
+            NSLog(@"");
+            
+            // Add ticks to allCores data to calculate all cores
+            usedTicksAllCores += usedTicks;
+            idleTicksAllCores += processorInfo[i].cpu_ticks[CPU_STATE_IDLE];
         }
         
-        NSLog(@"Number of processors: %d", processorCount);
+        // Now calculate the processor usage across all cores
+        double usedPercentAllCores = ((double)usedTicksAllCores / (idleTicksAllCores + usedTicksAllCores)) * 100;
+        
+        NSLog(@"Use percentage across all processor %d cores: %.02f%%", processorCount, usedPercentAllCores);
+        
+        // Deallocate the memory used to get this processor info (note on https://boredzo.org/cpuusage/ mentions this is necessary and this dev takes a similar approach that I have)
+        /* The prototype is: vm_deallocate(<#vm_map_t target_task#>, <#vm_address_t address#>, <#vm_size_t size#>)
+         The target_task is usually a reference to the area the memory is stored in. This should be the current running application which can be gotten using mach's mach_task_self() method. Then the address and size are provided to the vm_deallocate function so the memory can be deallocated properly.
+         */
+        kern_return_t deallocateResult = vm_deallocate(mach_task_self(), (vm_address_t)processorInfo, sizeof(processor_cpu_load_info_data_t) * processorCount);
+        
+        if (deallocateResult != KERN_SUCCESS) {
+            NSLog(@"Error deallocating processorInfo data");
+        }
     } else {
         NSLog(@"Failed to get processor info with error code: %d", hostProcessorInfoResult);
     }
