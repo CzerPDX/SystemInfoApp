@@ -72,6 +72,11 @@ typedef enum {
     return [self.dashboardModel categoryTitleAtIdx:row];
 }
 
+- (BOOL)tableView:(NSTableView *)tableView shouldEditTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row {
+    return NO;
+}
+
+
 // Respond to a row being selected to update view in right pane
 // https://developer.apple.com/documentation/appkit/nstableviewdelegate/1528567-tableviewselectiondidchange?language=objc
 
