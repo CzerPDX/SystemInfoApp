@@ -16,13 +16,28 @@ Total CPU Usage Percent = ( `used ticks` / ( `used ticks` + `idle ticks` )) * 10
 #### Displaying the CPU usage in the view
 The `CPUViewController` uses `NSTimer` to call `overallCPUPercent` every few seconds. The exact amount will eventually be set by an app setting that can be changed by the user, but until that portion of the software is implemented it is just set to `1 second`.
 
-### Memory Monitory
-The `MemoryModel` provides a static function called `overallMemoryPercent` as an interface to calculate the memory usage across the system.
+### Memory Monitor
+The `MemoryModel` provides a static function called `getMemoryUsage` as an interface to calculate the memory usage across the system. It returns a `MemoryInfo` struct with the following data:
+```
+struct MemoryInfo {
+    double totalPhysicalMemoryGB;       // Total physical memory available in GB
+    double totalMemoryUsedGB;           // Active + Wire memory used in GB
+    double activeMemoryUsedGB;          // Active memory used in GB
+    double wireMemoryUsedGB;            // Wired memory used in GB
+    double totalMemoryUsedPercent;      // Percent of (active + wired) memory used over total physical
+};
+```
 
 #### Calculating Memory Usage
-`overallMemoryPercent` uses the `Mach` library's `host_statistics64` function to get the number of `free`, `inactive`, `active`, and `wire` pages from virtual memory using the `vm_statistics64_data_t` struct. Unavailable pages are considered to be those in `active` and `wire` as the ones in `inactive` can be allocated to if necessary, even though they are being held. The total memory usage is then calculated by:
+`getMemoryUsage` uses the `Mach` library's `host_statistics64` function to get the number of `free_count`, `inactive_count`, `active_count`, and `wire_count` from virtual memory using the `vm_statistics64_data_t` struct.
 
-Total Memory Usage Percent = ( `unavailable pages` / ( `unavailable pages` + `free pages` + `inactive pages` )) * 100
+Page counts are converted to GB using a conversion factor of: (`vm_page_size` * (`1 / 1073741824`)). 1073741824 is 2^30 which is the number of bytes in a GB.
+
+- `totalPhysicalMemoryGB` is calculated by adding the `free`, `inactive`, `active`, and `wire` page counts, converted to GB.
+- `totalMemoryUsedGB` is calculated by adding the `active` and `wire` page counts, converted to GB.
+- `totalMemoryUsedPercent` is calculated by (`totalMemoryUsedGB` / `totalPhysicalMemoryGB`) * 100;
+- `activeMemoryUsedGB` and `wireMemoryUsedGB` are reported directly from the outputs of `host_statistics64` after being converted to GB.
+
 
 ## Initial Software Requirements
 This project was based on the following requirements

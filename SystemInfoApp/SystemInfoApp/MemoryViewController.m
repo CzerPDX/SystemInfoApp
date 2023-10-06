@@ -25,6 +25,8 @@
     
     // Initialize a NSTimer object to call updateMemoryUsage
     self.memoryUsageTimer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(updateMemoryUsage) userInfo:nil repeats:YES];
+    
+//    [MemoryModel getMemoryUsage];
 }
 
 - (void)viewWillDisappear {
@@ -37,10 +39,18 @@
 
 - (void)updateMemoryUsage {
     // Calculate the overall Memory usage
-    double memoryUsage = [MemoryModel overallMemoryPercent];
+    MemoryInfo memoryUsage = [MemoryModel getMemoryUsage];
     
-    // Update the NSTextField
-    self.memoryUsageTextField.stringValue = [NSString stringWithFormat:@"%.02f%%", memoryUsage];
+    // Update the text fields on in the memory view
+    self.totalPhysicalMemoryTextField.stringValue = [NSString stringWithFormat:@"%.02f", memoryUsage.totalPhysicalMemoryGB];
+    
+    self.totalMemoryUsedTextField.stringValue = [NSString stringWithFormat:@"%.02f", memoryUsage.totalMemoryUsedGB];
+    
+    self.activeMemoryUsedTextField.stringValue = [NSString stringWithFormat:@"%.02f", memoryUsage.activeMemoryUsedGB];
+    
+    self.wiredMemoryUsedTextField.stringValue = [NSString stringWithFormat:@"%.02f", memoryUsage.wireMemoryUsedGB];
+    
+    self.memoryUsagePercentTextField.stringValue = [NSString stringWithFormat:@"%.02f", memoryUsage.totalMemoryUsedPercent];
 }
 
 @end

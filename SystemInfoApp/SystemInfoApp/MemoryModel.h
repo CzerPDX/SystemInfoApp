@@ -7,9 +7,20 @@
 
 #import <Foundation/Foundation.h>
 
+struct MemoryInfo {
+    double totalPhysicalMemoryGB;
+    double totalMemoryUsedGB;
+    double activeMemoryUsedGB;
+    double wireMemoryUsedGB;
+    double totalMemoryUsedPercent;
+};
+
+typedef struct MemoryInfo MemoryInfo;
+
 @interface MemoryModel : NSObject
 
-// Get CPU info
-+ (double)overallMemoryPercent;
+
+// Get Memory info
++ (MemoryInfo)getMemoryUsage;
 
 @end

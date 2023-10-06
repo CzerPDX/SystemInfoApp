@@ -9,7 +9,19 @@
 
 @interface MemoryViewController : NSViewController
 
-// Display the percentage of used memory on the system
-@property (weak) IBOutlet NSTextField *memoryUsageTextField;
+// Total physical memory text field
+@property (weak) IBOutlet NSTextField *totalPhysicalMemoryTextField;
+
+// Total memory used text field
+@property (weak) IBOutlet NSTextField *totalMemoryUsedTextField;
+
+// App memory used text field
+@property (weak) IBOutlet NSTextField *activeMemoryUsedTextField;
+
+// Wired memory used text field
+@property (weak) IBOutlet NSTextField *wiredMemoryUsedTextField;
+
+// Total percentage used memory text field
+@property (weak) IBOutlet NSTextField *memoryUsagePercentTextField;
 
 @end
