@@ -5,6 +5,11 @@
 //  Created by Czer on 10/5/23.
 //
 
+/*
+ References:
+ https://developer.apple.com/documentation/kernel/1502863-host_statistics64
+ */
+
 #import "MemoryModel.h"
 #import <mach/mach.h>
 
@@ -18,6 +23,7 @@
 
 // Get the overall CPU usage on the system
 + (double)overallMemoryPercent {
+    double overallMemoryPercent = 0.0;
     host_flavor_t flavor = HOST_VM_INFO64;
     vm_statistics64_data_t hostInfo;
     mach_msg_type_number_t hostInfoCount = HOST_VM_INFO64_COUNT;
@@ -29,29 +35,22 @@
     } else {
         // Can get information about what's returned in vm_statistcis64_data_t from mach's vm_statistics.h
         
-        // Number of pages of memory that are not being used and ready to be allocated to
-        int64_t freePages = hostInfo.free_count;
+        // Breakdown of the types of virtual memory pages reported in the vm_statistics64_data_t struct
+        // free_count:  Number of pages of memory that are not being used and ready to be allocated to
+        // inactive_count:  Number of pages of memory that hold old data. They can be written to if needed but they hold onto the data in case it's needed again. Technically is "used" but is available to be overwritten so it will be counted as "available" memory for this application
+        // active_count:  Number of pages of memory that are actively being used by applications, system processes, etc.
+        // wire_count:  Number of pages that are 'wired' into place and can't be swapped out/paged to disk. Definitely not usable.
         
-        // Number of pages of memory that hold old data. They can be written to if needed but they hold onto the data in case it's needed again.
-        int64_t inactivePages = hostInfo.inactive_count;
+        // Free and inactive pages are be considered to be "available"
+        // Active and wire pages are be considered "unavailable".
+        int64_t unavailablePages = hostInfo.active_count + hostInfo.wire_count;
+        int64_t totalPages = unavailablePages + hostInfo.inactive_count + hostInfo.free_count;
         
-        // Number of pages of memory that are actively being used by applications, system processes, etc.
-        int64_t activePages = hostInfo.active_count;
-        
-        // Number of pages that are 'wired' into place and can't be swapped out/paged to disk. Definitely not usable.
-        int64_t wirePages = hostInfo.wire_count;
-        
-        // Free and inactive pages will be considered to be "available"
-        // Active and wire pages will be considered "unavailable".
-        int64_t totalPages = freePages + inactivePages + activePages + wirePages;
-        int64_t totalBytes = totalPages * vm_page_size;
-        NSLog(@"%.02f GB of memory on the system.", (double)totalBytes / 1000000000);
-        
+        // Calculate the percent of available memory
+        overallMemoryPercent = ((double)unavailablePages / totalPages) * 100;
     }
     
-    
-    
-    return 0.0;
+    return overallMemoryPercent;
 }
 
 

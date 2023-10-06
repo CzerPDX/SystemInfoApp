@@ -717,6 +717,15 @@
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
+                            <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VGW-WY-HXm">
+                                <rect key="frame" x="20" y="216" width="207" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" borderStyle="bezel" placeholderString="loading..." drawsBackground="YES" id="PBc-wH-iL8">
+                                    <font key="font" metaFont="system" size="30"/>
+                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
                         </subviews>
                         <constraints>
                             <constraint firstItem="gvX-xt-8nN" firstAttribute="leading" secondItem="ReN-h8-Ghc" secondAttribute="leading" constant="20" symbolic="YES" id="f76-C3-Gza"/>
@@ -724,6 +733,9 @@
                             <constraint firstAttribute="trailing" secondItem="gvX-xt-8nN" secondAttribute="trailing" constant="20" symbolic="YES" id="qdP-PL-YrY"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="memoryUsageTextField" destination="VGW-WY-HXm" id="hlx-F3-AVw"/>
+                    </connections>
                 </viewController>
                 <customObject id="GLI-pQ-rAT" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
