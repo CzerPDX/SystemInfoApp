@@ -8,7 +8,7 @@ A vertical `Split View` is used to divide the left half of the main dashboard fr
 ### CPU Monitor
 The `CPUModel` provides a static function called `overallCPUPercent` as an interface to calculate the CPU usage across the system.
 
-#### Calculating the CPU usage across the system cores
+#### Calculating CPU Usage
 `overallCPUPercent` uses the `Mach` library's `host_processor_info` function to get CPU tick information for each processor core. For each core the used ticks are added to a global total using `CPU_STATE_USER` and `CPU_STATE_SYSTEM` and the idle ticks are collected from `CPU_STATE_IDLE`. Once the values of these are summed from all cores, the overall CPU usage on the system can be calculated by:
 
 Total CPU Usage Percent = ( `used ticks` / ( `used ticks` + `idle ticks` )) * 100
@@ -16,6 +16,13 @@ Total CPU Usage Percent = ( `used ticks` / ( `used ticks` + `idle ticks` )) * 10
 #### Displaying the CPU usage in the view
 The `CPUViewController` uses `NSTimer` to call `overallCPUPercent` every few seconds. The exact amount will eventually be set by an app setting that can be changed by the user, but until that portion of the software is implemented it is just set to `1 second`.
 
+### Memory Monitory
+The `MemoryModel` provides a static function called `overallMemoryPercent` as an interface to calculate the memory usage across the system.
+
+#### Calculating Memory Usage
+`overallMemoryPercent` uses the `Mach` library's `host_statistics64` function to get the number of `free`, `inactive`, `active`, and `wire` pages from virtual memory using the `vm_statistics64_data_t` struct. Unavailable pages are considered to be those in `active` and `wire` as the ones in `inactive` can be allocated to if necessary, even though they are being held. The total memory usage is then calculated by:
+
+Total Memory Usage Percent = ( `unavailable pages` / ( `unavailable pages` + `free pages` + `inactive pages` )) * 100
 
 ## Initial Software Requirements
 This project was based on the following requirements
