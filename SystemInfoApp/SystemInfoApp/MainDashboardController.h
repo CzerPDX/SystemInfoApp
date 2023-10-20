@@ -1,5 +1,5 @@
 //
-//  Header.h
+//  MainDashboardController.h
 //  SystemInfoApp
 //
 //  Created by Czer on 9/27/23.
