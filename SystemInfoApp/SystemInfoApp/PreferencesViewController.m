@@ -17,20 +17,21 @@
 // After the view has loaded this will run to set up and initialize the controller.
 - (void)viewDidLoad {
     [super viewDidLoad];
+  
+  // Get the window appearance setting from user preferences and set the dropdown to it
+  NSString *windowAppearancePreferenceName = [[NSUserDefaults standardUserDefaults] objectForKey:@"WindowAppearancePreference"];
+  [self.windowAppearancePreference selectItemWithTitle:windowAppearancePreferenceName];
 }
 
 // This function will run when the dark mode switch is changed from one to the other
-- (IBAction)darkModeSwitchChanged:(NSSwitch *)darkModeSwitchSender {
+- (IBAction)windowAppearancePreferenceChanged:(NSPopUpButton *)sender {
   
-  NSLog(@"dark mode switch activated! Current state %ld", darkModeSwitchSender.state);
-  // Load the user defaults for the program
+  NSLog(@"User changed dropdown for window appearance! Current state:	 %@", sender.selectedItem.title);
   NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-  
-  // Get the current value of the darkModeSwitchSender that the user set it to and set it as the default for the DarkModeEnabled preference
-  [defaults setBool:(darkModeSwitchSender.state == NSControlStateValueOn) forKey:@"DarkModeEnabled"];
-  
-  // Then explicitly synchronize the defaults with the system settings for the program
-  // I have read that this may happen automatically but to be sure I am calling it here explicitly to save the changes to disk
+
+  // Set the window appearance preference to the value of the dropdown
+  [defaults setObject:sender.selectedItem.title forKey:@"WindowAppearancePreference"];
+  // Synchronize the defaults to disk
   [defaults synchronize];
 }
 

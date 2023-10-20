@@ -744,9 +744,9 @@
                                 </textFieldCell>
                             </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vzO-5C-cyj">
-                                <rect key="frame" x="18" y="196" width="71" height="16"/>
+                                <rect key="frame" x="18" y="196" width="194" height="16"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <textFieldCell key="cell" lineBreakMode="truncatingTail" alignment="left" title="Dark mode" id="B3f-Cl-Ruj">
+                                <textFieldCell key="cell" lineBreakMode="truncatingTail" alignment="left" title="Preferred Window Appearance:" id="B3f-Cl-Ruj">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -756,8 +756,26 @@
                                 <rect key="frame" x="20" y="223" width="287" height="5"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                             </box>
+                            <popUpButton verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5Su-0K-pm8">
+                                <rect key="frame" x="18" y="164" width="292" height="25"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <popUpButtonCell key="cell" type="push" title="System Default" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="Hh0-9P-3q3" id="pEA-hg-hWc">
+                                    <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="menu"/>
+                                    <menu key="menu" id="JXn-fK-ImH">
+                                        <items>
+                                            <menuItem title="System Default" id="Hh0-9P-3q3"/>
+                                            <menuItem title="Dark" id="wgD-CO-EwC"/>
+                                            <menuItem title="Light" state="on" id="Cde-cA-KkE"/>
+                                        </items>
+                                    </menu>
+                                </popUpButtonCell>
+                                <connections>
+                                    <action selector="windowAppearancePreferenceChanged:" target="TJj-ho-SXg" id="dEF-dR-ZWc"/>
+                                </connections>
+                            </popUpButton>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TYG-ZW-us9">
-                                <rect key="frame" x="18" y="160" width="193" height="16"/>
+                                <rect key="frame" x="18" y="127" width="193" height="16"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <textFieldCell key="cell" lineBreakMode="truncatingTail" alignment="left" title="Monitoring update refresh rate:" id="dP4-uZ-7p2">
                                     <font key="font" metaFont="system"/>
@@ -766,7 +784,7 @@
                                 </textFieldCell>
                             </textField>
                             <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ScD-Ih-R4X">
-                                <rect key="frame" x="216" y="157" width="64" height="21"/>
+                                <rect key="frame" x="216" y="124" width="64" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <textFieldCell key="cell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" alignment="right" placeholderString="loading..." drawsBackground="YES" id="NzL-Xr-sZu">
                                     <font key="font" metaFont="system"/>
@@ -775,7 +793,7 @@
                                 </textFieldCell>
                             </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yje-Qr-OE8">
-                                <rect key="frame" x="283" y="160" width="26" height="16"/>
+                                <rect key="frame" x="283" y="127" width="26" height="16"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <textFieldCell key="cell" lineBreakMode="clipping" title="sec" id="L7S-zO-D7K">
                                     <font key="font" metaFont="system"/>
@@ -783,19 +801,11 @@
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <switch toolTip="Switch to turn on light mode" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" baseWritingDirection="leftToRight" alignment="left" state="on" translatesAutoresizingMaskIntoConstraints="NO" id="3EX-oK-uey">
-                                <rect key="frame" x="103" y="191" width="42" height="24"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <accessibility description="Switch to turn on light mode"/>
-                                <connections>
-                                    <action selector="darkModeSwitchChanged:" target="TJj-ho-SXg" id="NKE-6u-xvX"/>
-                                </connections>
-                            </switch>
                         </subviews>
                     </view>
                     <connections>
-                        <outlet property="darkModeSwitch" destination="3EX-oK-uey" id="l9c-j3-vLw"/>
                         <outlet property="refreshRateTextField" destination="ScD-Ih-R4X" id="P7O-Fh-24s"/>
+                        <outlet property="windowAppearancePreference" destination="5Su-0K-pm8" id="xmo-7L-jKe"/>
                     </connections>
                 </viewController>
                 <customObject id="Qcj-gQ-wOV" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
