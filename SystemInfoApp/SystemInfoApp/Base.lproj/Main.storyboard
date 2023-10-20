@@ -726,10 +726,10 @@
             </objects>
             <point key="canvasLocation" x="879" y="195"/>
         </scene>
-        <!--View Controller-->
+        <!--Preferences View Controller-->
         <scene sceneID="IuU-nR-fbv">
             <objects>
-                <viewController id="TJj-ho-SXg" sceneMemberID="viewController">
+                <viewController id="TJj-ho-SXg" customClass="PreferencesViewController" sceneMemberID="viewController">
                     <view key="view" id="CoK-Be-U5d">
                         <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -744,9 +744,9 @@
                                 </textFieldCell>
                             </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vzO-5C-cyj">
-                                <rect key="frame" x="18" y="196" width="73" height="16"/>
+                                <rect key="frame" x="18" y="196" width="71" height="16"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <textFieldCell key="cell" lineBreakMode="truncatingTail" alignment="left" title="Light Mode" id="B3f-Cl-Ruj">
+                                <textFieldCell key="cell" lineBreakMode="truncatingTail" alignment="left" title="Dark mode" id="B3f-Cl-Ruj">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -756,11 +756,6 @@
                                 <rect key="frame" x="20" y="223" width="287" height="5"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                             </box>
-                            <switch toolTip="Switch to turn on light mode" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" baseWritingDirection="leftToRight" alignment="left" translatesAutoresizingMaskIntoConstraints="NO" id="3EX-oK-uey">
-                                <rect key="frame" x="142" y="191" width="42" height="24"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <accessibility description="Switch to turn on light mode"/>
-                            </switch>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TYG-ZW-us9">
                                 <rect key="frame" x="18" y="160" width="193" height="16"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
@@ -788,8 +783,20 @@
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
+                            <switch toolTip="Switch to turn on light mode" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" baseWritingDirection="leftToRight" alignment="left" state="on" translatesAutoresizingMaskIntoConstraints="NO" id="3EX-oK-uey">
+                                <rect key="frame" x="103" y="191" width="42" height="24"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <accessibility description="Switch to turn on light mode"/>
+                                <connections>
+                                    <action selector="darkModeSwitchChanged:" target="TJj-ho-SXg" id="NKE-6u-xvX"/>
+                                </connections>
+                            </switch>
                         </subviews>
                     </view>
+                    <connections>
+                        <outlet property="darkModeSwitch" destination="3EX-oK-uey" id="l9c-j3-vLw"/>
+                        <outlet property="refreshRateTextField" destination="ScD-Ih-R4X" id="P7O-Fh-24s"/>
+                    </connections>
                 </viewController>
                 <customObject id="Qcj-gQ-wOV" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>

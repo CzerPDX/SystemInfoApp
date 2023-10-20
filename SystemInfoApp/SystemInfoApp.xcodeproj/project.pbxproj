@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		B9485C242ACF83500023ADE0 /* MemoryModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B9485C232ACF83500023ADE0 /* MemoryModel.m */; };
+		B9535A002AE31D06002F748D /* PreferencesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B95359FF2AE31D06002F748D /* PreferencesViewController.m */; };
 		B95602FA2ACCCB5000D243E9 /* CPUModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B95602F92ACCCB5000D243E9 /* CPUModel.m */; };
 		B988F2162AC641B700F8298A /* DashboardModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B988F2152AC641B700F8298A /* DashboardModel.m */; };
 		B99432612AC520190048C37D /* MainDashboardController.m in Sources */ = {isa = PBXBuildFile; fileRef = B99432602AC520190048C37D /* MainDashboardController.m */; };
@@ -43,6 +44,8 @@
 /* Begin PBXFileReference section */
 		B9485C222ACF831E0023ADE0 /* MemoryModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MemoryModel.h; sourceTree = "<group>"; };
 		B9485C232ACF83500023ADE0 /* MemoryModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MemoryModel.m; sourceTree = "<group>"; };
+		B95359FE2AE31CA9002F748D /* PreferencesViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PreferencesViewController.h; sourceTree = "<group>"; };
+		B95359FF2AE31D06002F748D /* PreferencesViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PreferencesViewController.m; sourceTree = "<group>"; };
 		B95602F82ACCCA1100D243E9 /* CPUModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CPUModel.h; sourceTree = "<group>"; };
 		B95602F92ACCCB5000D243E9 /* CPUModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CPUModel.m; sourceTree = "<group>"; };
 		B988F2142AC640AE00F8298A /* DashboardModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DashboardModel.h; sourceTree = "<group>"; };
@@ -144,6 +147,8 @@
 				B9A2FB242ACA2D0A00E95F98 /* StorageViewController.m */,
 				B9A2FB162ACA2C0600E95F98 /* NetworkViewController.h */,
 				B9A2FB292ACA2D2F00E95F98 /* NetworkViewController.m */,
+				B95359FE2AE31CA9002F748D /* PreferencesViewController.h */,
+				B95359FF2AE31D06002F748D /* PreferencesViewController.m */,
 			);
 			path = SystemInfoApp;
 			sourceTree = "<group>";
@@ -294,6 +299,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B9535A002AE31D06002F748D /* PreferencesViewController.m in Sources */,
 				B988F2162AC641B700F8298A /* DashboardModel.m in Sources */,
 				B95602FA2ACCCB5000D243E9 /* CPUModel.m in Sources */,
 				B99432612AC520190048C37D /* MainDashboardController.m in Sources */,
