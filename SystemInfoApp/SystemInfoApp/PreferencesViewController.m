@@ -25,15 +25,13 @@
 
 // This function will run when the dark mode switch is changed from one to the other
 - (IBAction)windowAppearancePreferenceChanged:(NSPopUpButton *)sender {
-  
-  NSLog(@"User changed dropdown for window appearance! Current state:	 %@", sender.selectedItem.title);
+  // Get the current user defaults
   NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
 
   // Set the window appearance preference to the value of the dropdown
   [defaults setObject:sender.selectedItem.title forKey:@"WindowAppearancePreference"];
   // Synchronize the defaults to disk
   [defaults synchronize];
-  
   
   // Now change the application's apperance based on the user's selection
   NSAppearance *appearance;

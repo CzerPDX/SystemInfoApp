@@ -39,6 +39,17 @@ Page counts are converted to GB using a conversion factor of: (`vm_page_size` * 
 - `activeMemoryUsedGB` and `wireMemoryUsedGB` are reported directly from the outputs of `host_statistics64` after being converted to GB.
 
 
+### Preferences
+There are two preferences the app can set: the window appearance and the refersh rate for live monitoring (in seconds).
+
+#### Window Appearance
+The window appearance can vary between three different settings: `system default` (default setting), `light`, and `dark`. When altered, the user preference is updated through `NSUserDefaults` via the `WindowAppearancePreference` setting. Additionally, the current window appearance for the app will update based on the setting.
+
+When the app loads, `AppDelegate` will also look at the user setting and set the window appearance based on the `WindowAppearancePreference`.
+
+#### Live Monitoring Refresh Rate
+Not yet implemented but will follow the same pattern as window appearance with a limitation of 0.5 seconds minimum value.
+
 ## Initial Software Requirements
 This project was based on the following requirements
 
