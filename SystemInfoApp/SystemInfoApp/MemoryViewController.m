@@ -7,6 +7,7 @@
 
 #import "MemoryViewController.h"
 #import "MemoryModel.h"
+#import "PreferencesModel.h"
 
 
 @interface MemoryViewController ()
@@ -23,8 +24,11 @@
 - (void)viewDidLoad {
   [super viewDidLoad];
   
-  // Initialize a NSTimer object to call updateMemoryUsage
-  self.memoryUsageTimer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(updateMemoryUsage) userInfo:nil repeats:YES];
+  // Give the Memory usage initial values as soon as the window opens
+  [self updateMemoryUsage];
+  // Then nitialize a NSTimer object to call updateMemoryUsage
+  double intervalInSeconds = [PreferencesModel getRefreshRatePreference];
+  self.memoryUsageTimer = [NSTimer scheduledTimerWithTimeInterval:intervalInSeconds target:self selector:@selector(updateMemoryUsage) userInfo:nil repeats:YES];
 }
 
 - (void)viewWillDisappear {
