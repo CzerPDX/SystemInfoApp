@@ -31,12 +31,11 @@
 // After the view has loaded this will run to set up and initialize the controller.
 - (void)viewDidLoad {
   [super viewDidLoad];
-
-  double intervalInSeconds = [PreferencesModel getRefreshRatePreference];
   
   // Give the CPU usage a value as soon as the window opens
-  self.cpuUsageTextField.stringValue = [NSString stringWithFormat:@"%.02f%%", [CPUModel overallCPUPercent]];
-  // Initialize a NSTimer object to call updateCPUUsage
+  [self updateCPUUsage];
+  // Then initialize a NSTimer object to call updateCPUUsage
+  double intervalInSeconds = [PreferencesModel getRefreshRatePreference];
   self.cpuUsageTimer = [NSTimer scheduledTimerWithTimeInterval:intervalInSeconds target:self selector:@selector(updateCPUUsage) userInfo:nil repeats:YES];
 }
 
