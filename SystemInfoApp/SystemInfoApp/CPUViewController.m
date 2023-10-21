@@ -8,6 +8,7 @@
 
 #import "CPUViewController.h"
 #import "CPUModel.h"
+#import "PreferencesModel.h"
 
 // References
 /*
@@ -29,26 +30,27 @@
 
 // After the view has loaded this will run to set up and initialize the controller.
 - (void)viewDidLoad {
-    [super viewDidLoad];
-    
-    // Initialize a NSTimer object to call updateCPUUsage
-    self.cpuUsageTimer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(updateCPUUsage) userInfo:nil repeats:YES];
+  [super viewDidLoad];
+
+  
+  // Initialize a NSTimer object to call updateCPUUsage
+  self.cpuUsageTimer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(updateCPUUsage) userInfo:nil repeats:YES];
 }
 
 - (void)viewWillDisappear {
-    [super viewWillDisappear];
-    
-    // When the view is about to disappear invalidate the timer and set it to nil
-    [self.cpuUsageTimer invalidate];
-    self.cpuUsageTimer = nil;
+  [super viewWillDisappear];
+  
+  // When the view is about to disappear invalidate the timer and set it to nil
+  [self.cpuUsageTimer invalidate];
+  self.cpuUsageTimer = nil;
 }
 
 - (void)updateCPUUsage {
-    // Calculate the overall CPU usage
-    double cpuUsage = [CPUModel overallCPUPercent];
-    
-    // Update the NSTextField
-    self.cpuUsageTextField.stringValue = [NSString stringWithFormat:@"%.02f%%", cpuUsage];
+  // Calculate the overall CPU usage
+  double cpuUsage = [CPUModel overallCPUPercent];
+  
+  // Update the NSTextField
+  self.cpuUsageTextField.stringValue = [NSString stringWithFormat:@"%.02f%%", cpuUsage];
 }
 
 
