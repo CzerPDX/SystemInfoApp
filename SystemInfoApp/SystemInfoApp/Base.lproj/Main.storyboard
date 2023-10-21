@@ -678,7 +678,7 @@
                 <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
                 <customObject id="Ady-hI-5gd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="75" y="0.0"/>
+            <point key="canvasLocation" x="179" y="-147"/>
         </scene>
         <!--Window Controller-->
         <scene sceneID="R2V-B0-nI4">
@@ -699,7 +699,7 @@
                 </windowController>
                 <customObject id="Oky-zY-oP4" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="75" y="250"/>
+            <point key="canvasLocation" x="78" y="246"/>
         </scene>
         <!--Window Controller-->
         <scene sceneID="522-os-wVf">
@@ -759,14 +759,14 @@
                             <popUpButton verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5Su-0K-pm8">
                                 <rect key="frame" x="18" y="164" width="292" height="25"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <popUpButtonCell key="cell" type="push" title="System Default" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="Hh0-9P-3q3" id="pEA-hg-hWc">
+                                <popUpButtonCell key="cell" type="push" title="System Default" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="Hh0-9P-3q3" id="pEA-hg-hWc">
                                     <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="menu"/>
                                     <menu key="menu" id="JXn-fK-ImH">
                                         <items>
-                                            <menuItem title="System Default" id="Hh0-9P-3q3"/>
+                                            <menuItem title="System Default" state="on" id="Hh0-9P-3q3"/>
                                             <menuItem title="Dark" id="wgD-CO-EwC"/>
-                                            <menuItem title="Light" state="on" id="Cde-cA-KkE"/>
+                                            <menuItem title="Light" id="Cde-cA-KkE"/>
                                         </items>
                                     </menu>
                                 </popUpButtonCell>

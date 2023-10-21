@@ -15,8 +15,7 @@
 @implementation AppDelegate
 
 - (void)applicationWillFinishLaunching:(NSNotification *)notification {
-  // To avoid possible UI flicker, user defaults will be set here.
-  
+  // Putting appearance preference response in here to avoid UI flicker
   // Setup object for user defaults
   NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
   // Create a dictionary of defaults that are used to set up the default preferences for the program
@@ -24,13 +23,26 @@
     @"WindowAppearancePreference": @("System Default"),
     @"LiveMonitorRefreshRateInSeconds": @(1)
   };
-  
   // Then register these preferences as the default preferences
   [defaults registerDefaults:defaultPreferences];
+  
+  
+  // Now set the window appearance based on the user's preferences
+  NSAppearance *appearance;
+  NSString *userPreferredAppearanceName = [[NSUserDefaults standardUserDefaults] objectForKey:@"WindowAppearancePreference"];
+  if ([userPreferredAppearanceName isEqualToString:@"Dark"]) {
+    appearance = [NSAppearance appearanceNamed:NSAppearanceNameDarkAqua];
+  } else if ([userPreferredAppearanceName isEqualToString:@"Light"]) {
+    appearance = [NSAppearance appearanceNamed:NSAppearanceNameAqua];
+  } else if ([userPreferredAppearanceName isEqualToString:@"System Default"]) {
+    appearance = nil;
+  }
+  [NSApp setAppearance:appearance];
 }
 
+
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
-    // Insert code here to initialize your application
+  
 }
 
 
