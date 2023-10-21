@@ -14,7 +14,7 @@ The `CPUModel` provides a static function called `overallCPUPercent` as an inter
 Total CPU Usage Percent = ( `used ticks` / ( `used ticks` + `idle ticks` )) * 100
 
 #### Displaying the CPU usage in the view
-The `CPUViewController` uses `NSTimer` to call `overallCPUPercent` every few seconds. The exact amount will eventually be set by an app setting that can be changed by the user, but until that portion of the software is implemented it is just set to `1 second`.
+The `CPUViewController` uses `NSTimer` to call `overallCPUPercent` every few seconds based on the value returned by the `PreferencesModel`'s  `getRefreshRatePreference` method.
 
 ### Memory Monitor
 The `MemoryModel` provides a static function called `getMemoryUsage` as an interface to calculate the memory usage across the system. It returns a `MemoryInfo` struct with the following data:
@@ -38,79 +38,14 @@ Page counts are converted to GB using a conversion factor of: (`vm_page_size` * 
 - `totalMemoryUsedPercent` is calculated by (`totalMemoryUsedGB` / `totalPhysicalMemoryGB`) * 100;
 - `activeMemoryUsedGB` and `wireMemoryUsedGB` are reported directly from the outputs of `host_statistics64` after being converted to GB.
 
+#### Displaying the memory usage in the view
+The `MemoryViewController` uses `NSTimer` to call `updateMemoryUsage` every few seconds based on the value returned by the `PreferencesModel`'s  `getRefreshRatePreference` method.
 
 ### Preferences
-There are two preferences the app can set: the window appearance and the refersh rate for live monitoring (in seconds).
+The `PreferencesModel` interacts with the `NSUserDefaults` system API to save and update the following user preferences
+- **Window Appearance:** Users can choose to have the application window in `Dark Mode`, `Light Mode`, or match whatever their `System Default` is.
+- **Live Monitoring Refresh Rate** Users can change the refresh rate of the live monitoring pages with this setting,
 
-#### Window Appearance
-The window appearance can vary between three different settings: `system default` (default setting), `light`, and `dark`. When altered, the user preference is updated through `NSUserDefaults` via the `WindowAppearancePreference` setting. Additionally, the current window appearance for the app will update based on the setting.
-
-When the app loads, `AppDelegate` will also look at the user setting and set the window appearance based on the `WindowAppearancePreference`.
-
-#### Live Monitoring Refresh Rate
-Not yet implemented but will follow the same pattern as window appearance with a limitation of 0.5 seconds minimum value.
-
-## Initial Software Requirements
-This project was based on the following requirements
-
-### Functional Requirements
-
-#### Main Dashboard
-The `Main Dashboard` needs to display a list of statistics `categories`
-- CPU
-- Memory
-- Storage
-- Network
-
-#### Monitoring
-When any of the above `categories` in the `Main Dashboard` is selected a new window should appear to display the real-time data for that `category`.
-
-#### Settings Page
-There will also be a `Settings` page. It will give users the abilty to:
-- Choose a `light mode` or `dark mode (default)`.
-- Change the `refresh rate` for the real-time statistics in the `Monitoring` section.
-
-### Technical Requirements
-
-#### Language and Framework
-The application will be developed in `Objective-C` using `Xcode` as an IDE in a `MacOS` environment.
-
-#### macOS System Calls
-Uses the macOS system-level APIs to get data from the `categories` listed in the `Main Dashboard`:
-- CPU
-- Memory
-- Disk
-- Network
-
-#### User Interface
-The UI will be built visually using Xcode's `interface builder` and those visual elements will be interacted with using Cocoa's `AppKit`.
-
-#### Data Binding
-The application will use either `Cocoa Bindings` or manual-written code to keep the model and view synchronized in the `Monitor`. This will be evaluated once the project is underway a little bit.
-
-#### User Settings
-The application will use the macos `UserDefaults` API to save their preferences in the `Settings` menu.
-
-#### Code Structure
-The application will follow the [`MVC` design pattern](https://developer.apple.com/library/archive/documentation/General/Conceptual/CocoaEncyclopedia/Model-View-Controller/Model-View-Controller.html).  It will have separate objects for:
-- `Model` that holds and manages all the data for the application. It doesn't usually have any direct connection to the UI
-- `View` that displays the data from the model to users and allows them to edit it. It shouldn't store any data
-- `Controller` that acts as a switchboard between the `Model` and the `View`. It updates the `Model` based on user interactions captured by the `View` and refreshes the `View` based on changes in the `Model`.
-
-#### Error Handling
-The application will implement proper error handling for scenarios like failed system API calls.
-
-#### Unit Tests
-Write unit tests to cover important functions.
-
-### Additional Features
-If I get really industrious I'm going to implement some additional features iteratively after the core software is finished. 
-
-#### Notifications
-Implement macOS notifications to alert the user when certain thresholds are crossed (ie: CPU usage above 90%).
-
-#### Help Page
-Include a Help section within the app that provides guidance on how to use the features.
 
 # Development Environment
 Due to the constraints of developing on a late 2012 iMac, some of my code may incorporate older practices or APIs. For clarity and transparency, I've outlined my development environment details below.
