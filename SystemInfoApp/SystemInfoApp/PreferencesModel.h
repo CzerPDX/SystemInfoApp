@@ -22,7 +22,7 @@
 + (void)changeWindowAppearancePreference:(NSString *)newAppearanceName;
 
 // Live Monitoring Refresh Rate Preference
-+ (double)getLiveMonitoringRefreshRatePreference;
-+ (void)changeLiveMonitoringRefreshRatePreference:(double)newRefreshRatePreference;
++ (double)getRefreshRatePreference;
++ (void)changeRefreshRatePreference:(NSString *)newRefreshRate;
 
 @end

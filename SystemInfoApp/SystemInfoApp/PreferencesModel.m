@@ -23,21 +23,27 @@
   // Get the current user defaults
   NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
 
-  // Set the window appearance preference to the value of the dropdown
+  // Set the window appearance preference to the incoming newAppearanceName
   [defaults setObject:newAppearanceName forKey:@"WindowAppearancePreference"];
+  
   // Synchronize the defaults to disk
   [defaults synchronize];
 }
 
 
 // Live Monitoring Refresh Rate Preference
-+ (double)getLiveMonitoringRefreshRatePreference {
-  return 0.0;
++ (double)getRefreshRatePreference {
+  return [[NSUserDefaults standardUserDefaults] doubleForKey:@"RefreshRatePreference"];
 }
 
-+ (void)changeLiveMonitoringRefreshRatePreference:(double)newRefreshRatePreference {
++ (void)changeRefreshRatePreference:(NSString *)newRefreshRate {
+  NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
   
+  // Set the refresh appearance preference to the incoming newRefreshRatePreference
+  [defaults setDouble:newRefreshRate.doubleValue forKey:@"RefreshRatePreference"];
   
+  // Synchronize the defaults to disk
+  [defaults synchronize];
 }
 
 @end

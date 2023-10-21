@@ -16,12 +16,10 @@
 @implementation AppDelegate
 
 - (void)applicationWillFinishLaunching:(NSNotification *)notification {
-  // Putting appearance preference response in here to avoid UI flicker
-  
   // Update the app's window color based on the user defaults
+  // Putting appearance preference response in here to avoid UI flicker
   [PreferencesViewController updateWindowAppearanceToUserPreference];
 }
-
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
   

@@ -20,9 +20,12 @@
     [super viewDidLoad];
   
   // Get the window appearance setting from user preferences and set the dropdown to it so it shows the current setting.
-  NSString *windowAppearancePreferenceName = [PreferencesModel getWindowAppearancePreferenceName];
-  [self.windowAppearancePreference selectItemWithTitle:windowAppearancePreferenceName];
+  [self.windowAppearancePreference selectItemWithTitle:[PreferencesModel getWindowAppearancePreferenceName]];
+   self.refreshRatePreferenceTextField.stringValue = [NSString stringWithFormat:@"%.02f", [PreferencesModel getRefreshRatePreference]];
 }
+
+
+// Window Appearance Preference Functions
 
 // This function will run when the window appearance preference dropdown is changed.
 - (IBAction)windowAppearancePreferenceChanged:(NSPopUpButton *)sender {
@@ -49,6 +52,14 @@
   }
   // Update the appearance
   [NSApp setAppearance:appearance];
+}
+
+
+
+// Refresh Rate Functions
+- (IBAction)updateRefreshRatePreference:(NSTextField *)sender {
+  // Update the user default setting for refresh rate
+  [PreferencesModel changeRefreshRatePreference:sender.stringValue];
 }
 
 @end
