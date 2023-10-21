@@ -33,6 +33,19 @@
   [defaults setObject:sender.selectedItem.title forKey:@"WindowAppearancePreference"];
   // Synchronize the defaults to disk
   [defaults synchronize];
+  
+  
+  // Now change the application's apperance based on the user's selection
+  NSAppearance *appearance;
+  NSString *userPreferredAppearanceName = [[NSUserDefaults standardUserDefaults] objectForKey:@"WindowAppearancePreference"];
+  if ([userPreferredAppearanceName isEqualToString:@"Dark"]) {
+    appearance = [NSAppearance appearanceNamed:NSAppearanceNameDarkAqua];
+  } else if ([userPreferredAppearanceName isEqualToString:@"Light"]) {
+    appearance = [NSAppearance appearanceNamed:NSAppearanceNameAqua];
+  } else if ([userPreferredAppearanceName isEqualToString:@"System Default"]) {
+    appearance = nil;
+  }
+  [NSApp setAppearance:appearance];
 }
 
 @end
