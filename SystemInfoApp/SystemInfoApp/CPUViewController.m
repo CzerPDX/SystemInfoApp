@@ -32,9 +32,12 @@
 - (void)viewDidLoad {
   [super viewDidLoad];
 
+  double intervalInSeconds = [PreferencesModel getRefreshRatePreference];
   
+  // Give the CPU usage a value as soon as the window opens
+  self.cpuUsageTextField.stringValue = [NSString stringWithFormat:@"%.02f%%", [CPUModel overallCPUPercent]];
   // Initialize a NSTimer object to call updateCPUUsage
-  self.cpuUsageTimer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(updateCPUUsage) userInfo:nil repeats:YES];
+  self.cpuUsageTimer = [NSTimer scheduledTimerWithTimeInterval:intervalInSeconds target:self selector:@selector(updateCPUUsage) userInfo:nil repeats:YES];
 }
 
 - (void)viewWillDisappear {
