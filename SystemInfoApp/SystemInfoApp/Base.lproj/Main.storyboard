@@ -784,9 +784,9 @@
                                 </textFieldCell>
                             </textField>
                             <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ScD-Ih-R4X">
-                                <rect key="frame" x="216" y="124" width="64" height="21"/>
+                                <rect key="frame" x="222" y="124" width="55" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <textFieldCell key="cell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" alignment="right" placeholderString="loading..." drawsBackground="YES" id="NzL-Xr-sZu">
+                                <textFieldCell key="cell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" alignment="right" drawsBackground="YES" id="NzL-Xr-sZu">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -804,6 +804,7 @@
                         </subviews>
                     </view>
                     <connections>
+                        <outlet property="refreshRatePreferenceTextField" destination="ScD-Ih-R4X" id="50o-pW-UBG"/>
                         <outlet property="refreshRateTextField" destination="ScD-Ih-R4X" id="P7O-Fh-24s"/>
                         <outlet property="windowAppearancePreference" destination="5Su-0K-pm8" id="xmo-7L-jKe"/>
                     </connections>

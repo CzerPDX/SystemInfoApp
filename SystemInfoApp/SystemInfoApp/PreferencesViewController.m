@@ -6,6 +6,7 @@
 //
 
 #import "PreferencesViewController.h"
+#import "PreferencesModel.h"
 
 @interface PreferencesViewController ()
 
@@ -18,31 +19,35 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
   
-  // Get the window appearance setting from user preferences and set the dropdown to it
-  NSString *windowAppearancePreferenceName = [[NSUserDefaults standardUserDefaults] objectForKey:@"WindowAppearancePreference"];
+  // Get the window appearance setting from user preferences and set the dropdown to it so it shows the current setting.
+  NSString *windowAppearancePreferenceName = [PreferencesModel getWindowAppearancePreferenceName];
   [self.windowAppearancePreference selectItemWithTitle:windowAppearancePreferenceName];
 }
 
-// This function will run when the dark mode switch is changed from one to the other
+// This function will run when the window appearance preference dropdown is changed.
 - (IBAction)windowAppearancePreferenceChanged:(NSPopUpButton *)sender {
-  // Get the current user defaults
-  NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-
-  // Set the window appearance preference to the value of the dropdown
-  [defaults setObject:sender.selectedItem.title forKey:@"WindowAppearancePreference"];
-  // Synchronize the defaults to disk
-  [defaults synchronize];
+  // Update the user default setting for window appearance
+  [PreferencesModel changeWindowAppearancePreference:sender.selectedItem.title];
   
-  // Now change the application's apperance based on the user's selection
+  // Then change the application's apperance based on the current window appearance preference
+  [PreferencesViewController updateWindowAppearanceToUserPreference];
+}
+
+// Update the window appearance of the app based on whatever is the current preference
++ (void)updateWindowAppearanceToUserPreference {
+  
+  // Create an appearance pointer to set based on the default apperance value
   NSAppearance *appearance;
-  NSString *userPreferredAppearanceName = [[NSUserDefaults standardUserDefaults] objectForKey:@"WindowAppearancePreference"];
-  if ([userPreferredAppearanceName isEqualToString:@"Dark"]) {
+  // Get the default window appearance name
+  NSString *currentWindowApperanceName = [PreferencesModel getWindowAppearancePreferenceName];
+  if ([currentWindowApperanceName isEqualToString:@"Dark"]) {
     appearance = [NSAppearance appearanceNamed:NSAppearanceNameDarkAqua];
-  } else if ([userPreferredAppearanceName isEqualToString:@"Light"]) {
+  } else if ([currentWindowApperanceName isEqualToString:@"Light"]) {
     appearance = [NSAppearance appearanceNamed:NSAppearanceNameAqua];
-  } else if ([userPreferredAppearanceName isEqualToString:@"System Default"]) {
+  } else {
     appearance = nil;
   }
+  // Update the appearance
   [NSApp setAppearance:appearance];
 }
 

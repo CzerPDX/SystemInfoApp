@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		B9485C242ACF83500023ADE0 /* MemoryModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B9485C232ACF83500023ADE0 /* MemoryModel.m */; };
+		B9522B402AE369ED0069816B /* PreferencesModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B9522B3F2AE369ED0069816B /* PreferencesModel.m */; };
 		B9535A002AE31D06002F748D /* PreferencesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B95359FF2AE31D06002F748D /* PreferencesViewController.m */; };
 		B95602FA2ACCCB5000D243E9 /* CPUModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B95602F92ACCCB5000D243E9 /* CPUModel.m */; };
 		B988F2162AC641B700F8298A /* DashboardModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B988F2152AC641B700F8298A /* DashboardModel.m */; };
@@ -44,6 +45,8 @@
 /* Begin PBXFileReference section */
 		B9485C222ACF831E0023ADE0 /* MemoryModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MemoryModel.h; sourceTree = "<group>"; };
 		B9485C232ACF83500023ADE0 /* MemoryModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MemoryModel.m; sourceTree = "<group>"; };
+		B9522B3E2AE366DC0069816B /* PreferencesModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PreferencesModel.h; sourceTree = "<group>"; };
+		B9522B3F2AE369ED0069816B /* PreferencesModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PreferencesModel.m; sourceTree = "<group>"; };
 		B95359FE2AE31CA9002F748D /* PreferencesViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PreferencesViewController.h; sourceTree = "<group>"; };
 		B95359FF2AE31D06002F748D /* PreferencesViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PreferencesViewController.m; sourceTree = "<group>"; };
 		B95602F82ACCCA1100D243E9 /* CPUModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CPUModel.h; sourceTree = "<group>"; };
@@ -149,6 +152,8 @@
 				B9A2FB292ACA2D2F00E95F98 /* NetworkViewController.m */,
 				B95359FE2AE31CA9002F748D /* PreferencesViewController.h */,
 				B95359FF2AE31D06002F748D /* PreferencesViewController.m */,
+				B9522B3E2AE366DC0069816B /* PreferencesModel.h */,
+				B9522B3F2AE369ED0069816B /* PreferencesModel.m */,
 			);
 			path = SystemInfoApp;
 			sourceTree = "<group>";
@@ -307,6 +312,7 @@
 				B9A2FB2A2ACA2D2F00E95F98 /* NetworkViewController.m in Sources */,
 				B9ECD53B2ABE88DF00BBB36B /* main.m in Sources */,
 				B9ECD5302ABE88D200BBB36B /* AppDelegate.m in Sources */,
+				B9522B402AE369ED0069816B /* PreferencesModel.m in Sources */,
 				B9A2FB252ACA2D0A00E95F98 /* StorageViewController.m in Sources */,
 				B9485C242ACF83500023ADE0 /* MemoryModel.m in Sources */,
 				B9A2FB202ACA2CED00E95F98 /* MemoryViewController.m in Sources */,
